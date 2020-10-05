@@ -43,7 +43,7 @@ class LeilaoTest extends TestCase
     {
         
         $this->expectException(\DomainException::class);
-        $this->expectExceptionMessage('Usuário não pode propor mais de 5 ofertas no mesmo leilão');
+        $this->expectExceptionMessage('Usuário não pode propor mais de 5 lances por leilão');
         $leilao = new Leilao('Mais um carro');
         $joao = new Usuario('joao');
         $maria = new Usuario('Maria');

@@ -39,7 +39,7 @@ class LeilaoTest extends TestCase
     public function testMesmoUsuarioNaoPodeProporDoisLancesSeguidos()
     {
         $this->expectException(DomainException::class);
-        $this->expectExceptionMessage('Usuário já deu o último lance');
+        $this->expectExceptionMessage('Usuário não pode propor 2 ofertas seguidas');
         $usuario = new Usuario('Ganancioso');
 
         $leilao = new Leilao('Objeto inútil');

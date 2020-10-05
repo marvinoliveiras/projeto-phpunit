@@ -26,6 +26,11 @@ class Leilao
 
     public function recebeLance(Lance $lance)
     {
+        $totalLancesUsuario = $this
+            ->quantidadeLancesPorUsuario($lance->getUsuario());
+        if ($totalLancesUsuario >= 5) {
+            throw new \DomainException('Usuário não pode propor mais de 5 lances por leilão');
+        }
         if ($this->finalizado) {
             throw new \DomainException('Este leilão já está finalizado');
         }
@@ -34,7 +39,7 @@ class Leilao
             ? null
             : $this->lances[count($this->lances) - 1];
         if (!empty($this->lances) && $ultimoLance->getUsuario() == $lance->getUsuario()) {
-            throw new \DomainException('Usuário já deu o último lance');
+            throw new \DomainException('Usuário não pode propor 2 ofertas seguidas');
         }
 
         $this->lances[] = $lance;
@@ -80,4 +85,22 @@ class Leilao
     {
         return $this->id;
     }
+
+    private function quantidadeLancesPorUsuario(Usuario $usuario): int
+    {
+        $totalLancesUsuario = array_reduce(
+            $this->lances,
+            function (int $totalAcumulado, Lance $lanceAtual) use ($usuario) {
+                if ($lanceAtual->getUsuario() == $usuario) {
+                    return $totalAcumulado + 1;
+                }
+
+                return $totalAcumulado;
+            },
+            0
+        );
+
+        return $totalLancesUsuario;
+    }
+
 }
