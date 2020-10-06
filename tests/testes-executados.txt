@@ -1,29 +1,8 @@
-Leilao (Alura\Leilao\Tests\Domain\Leilao)
- [x] Propor lance em leilao finalizado deve lancar excecao
- [x] Propor lances em leilao deve funcionar with data set #0
- [x] Propor lances em leilao deve funcionar with data set #1
- [x] Mesmo usuario nao pode propor dois lances seguidos
+Leilao Dao (Alura\Leilao\Tests\Integration\Dao\LeilaoDao)
+ [x] Busca leiloes nao finalizados with data set #0
+ [x] Busca leiloes finalizados with data set #0
+ [x] Ao atualizar leilao status deve ser alterado
 
-Leilao (Alura\Leilao\Tests\Model\Leilao)
- [x] Leilao nao deve receber lances repetidos
- [x] Leilao deve receber lances with data set "Leilao 2 lances"
- [x] Leilao deve receber lances with data set "Leilao 1 lance"
- [x] Leilao nao deve aceitar mais de 5 lances por usuario
-
-Avaliador (Alura\Leilao\Tests\Domain\Avaliador)
- [x] Avaliador deve achar maior valor with data set #0
- [x] Avaliador deve achar maior valor with data set #1
- [x] Avaliador deve achar maior valor with data set #2
- [x] Avaliador deve achar menor valor with data set #0
- [x] Avaliador deve achar menor valor with data set #1
- [x] Avaliador deve achar menor valor with data set #2
- [x] Avaliador deve ordenar os 3 lances with data set #0
- [x] Avaliador deve ordenar os 3 lances with data set #1
- [x] Avaliador deve ordenar os 3 lances with data set #2
- [x] Avaliador deve retornar os maiores lances disponiveis
-
-Encerrador (Alura\Leilao\Tests\Service\Encerrador)
- [x] Leiloes com mais de uma semana devem ser encerrados
- [x] Processo de encerramento deve continuar mesmo ocorrendo erro
- [x] So deve enviar por email apos finalizado
+Rest (Alura\Leilao\Tests\Integration\Web\Rest)
+ [x] Api rest deve retornar
 
